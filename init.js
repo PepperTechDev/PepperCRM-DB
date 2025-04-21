@@ -8,7 +8,7 @@ db.createUser({
     ]
 });
 
-db = db.getSiblingDB('smartpot');
+db = db.getSiblingDB('peppercrm');
 
 db.createCollection('usuarios');
 db.usuarios.insertMany([
