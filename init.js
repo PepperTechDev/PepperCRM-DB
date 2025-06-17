@@ -10,7 +10,7 @@ db.createUser({
 
 db = db.getSiblingDB('peppercrm');
 
-db.createCollection('usuarios');
+db.createCollection('users');
 db.usuarios.insertMany([
     {
         "_id": ObjectId("672acb984eeb4a3443fd435b"),
@@ -133,7 +133,7 @@ db.usuarios.insertMany([
     }
 ]);
 
-db.createCollection('correos');
+db.createCollection('emails');
 db.correos.insertMany([
     {
         "_id": ObjectId("68007bd05bc5f64f0fb58317"),
@@ -170,5 +170,45 @@ db.correos.insertMany([
         "msgBody": "Usuario, tienes una tarea que vence hoy a las 11:59 a.m.",
         "subject": "Recordatorio de Tarea",
         "_class": "peppertech.crm.api.Mail.Model.Entity.EmailDetails"
+    }
+]);
+
+db.createCollection("boards");
+db.boards.insertMany([
+    {
+        _id: ObjectId("6850ea975cdd6631bbcfd59d"),
+        name: "Kanban Project",
+        description: "Project for team task management.",
+        status: "ACTIVE",
+        created_at: ISODate("2025-06-17T04:09:59Z"),
+        start_date: ISODate("2025-06-10T14:45:23Z"),
+        end_date: ISODate("2025-09-11T14:45:23Z"),
+        owner: ObjectId("64a1f9b5e4b0f23d4c8a7e10"),
+        administrators: [
+            ObjectId("64a1f9b5e4b0f23d4c8a7e11"),
+            ObjectId("64a1f9b5e4b0f23d4c8a7e15")
+        ],
+        editors: [ObjectId("64a1f9b5e4b0f23d4c8a7e12")],
+        viewers: [ObjectId("64a1f9b5e4b0f23d4c8a7e13")],
+        columns: [ObjectId("64a1f9b5e4b0f23d4c8a7e14")],
+        _class: "peppertech.crm.api.Tasks.Model.Entity.Board"
+    },
+    {
+        _id: ObjectId("6850eaf25cdd6631bbcfd59e"),
+        name: "Kanban Project",
+        description: "Project for team task management.",
+        status: "ACTIVE",
+        created_at: ISODate("2025-06-17T04:11:30Z"),
+        start_date: ISODate("2025-06-10T14:45:23Z"),
+        end_date: ISODate("2025-09-11T14:45:23Z"),
+        owner: ObjectId("64a1f9b5e4b0f23d4c8a7e10"),
+        administrators: [
+            ObjectId("64a1f9b5e4b0f23d4c8a7e11"),
+            ObjectId("64a1f9b5e4b0f23d4c8a7e15")
+        ],
+        editors: [ObjectId("64a1f9b5e4b0f23d4c8a7e12")],
+        viewers: [ObjectId("64a1f9b5e4b0f23d4c8a7e13")],
+        columns: [ObjectId("64a1f9b5e4b0f23d4c8a7e14")],
+        _class: "peppertech.crm.api.Tasks.Model.Entity.Board"
     }
 ]);
