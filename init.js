@@ -11,7 +11,7 @@ db.createUser({
 db = db.getSiblingDB('peppercrm');
 
 db.createCollection('users');
-db.usuarios.insertMany([
+db.users.insertMany([
     {
         "_id": ObjectId("672acb984eeb4a3443fd435b"),
         "name": "Sebastian",
@@ -134,7 +134,7 @@ db.usuarios.insertMany([
 ]);
 
 db.createCollection('emails');
-db.correos.insertMany([
+db.emails.insertMany([
     {
         "_id": ObjectId("68007bd05bc5f64f0fb58317"),
         "recipient": "sebastianlopezosorno2005@gmail.com",
