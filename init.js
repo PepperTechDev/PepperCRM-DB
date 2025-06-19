@@ -29,6 +29,7 @@ db.users.insertMany([
         "email": "usuario@example.com",
         "create_at": ISODate("2025-03-29T03:17:29.000Z"),
         "password": "$2a$10$j53D2ciSMHE0joUwRr8YU.ijLq4Cpz.g9Fu2fKVfOGgfJwa7pqxte",
+        "role": "USER",
         "_class": "peppertech.crm.api.Users.Model.Entity.User"
     },
     {
@@ -57,6 +58,7 @@ db.users.insertMany([
         "email": "Juanes@example.com",
         "create_at": ISODate("2025-05-09T04:17:13.000Z"),
         "password": "$2a$10$0L8b5/taSQjosBzMwSHPoOWriwBve1juTI5q8I1w7z.QKLJLn6Mh2",
+        "role": "USER",
         "_class": "peppertech.crm.api.Users.Model.Entity.User"
     },
     {
@@ -66,6 +68,7 @@ db.users.insertMany([
         "email": "Luista@example.com",
         "create_at": ISODate("2025-05-09T04:18:14.000Z"),
         "password": "$2a$10$oIm0Q13mxgRLYbOCQnakTOuY8giLIC2VPBhzIsQU.lNggTh471Ir.",
+        "role": "USER",
         "_class": "peppertech.crm.api.Users.Model.Entity.User"
     },
     {
@@ -75,6 +78,7 @@ db.users.insertMany([
         "email": "doncan@example.com",
         "create_at": ISODate("2025-05-09T04:33:28.000Z"),
         "password": "$2a$10$9gM0RanXgI.RFVHYI9vClODmeH2aqpzS6o3yGLPvVwYFxOvVF5X82",
+        "role": "USER",
         "_class": "peppertech.crm.api.Users.Model.Entity.User"
     },
     {
@@ -84,6 +88,7 @@ db.users.insertMany([
         "email": "clark.kent@example.com",
         "create_at": ISODate("2025-05-09T04:42:18.000Z"),
         "password": "$2a$10$3jp.aLxpnpVwxuZBOL.oZOs0K4PIdA9InVFqxCtVI5jNWmVLFX.la",
+        "role": "USER",
         "_class": "peppertech.crm.api.Users.Model.Entity.User"
     },
     {
@@ -93,6 +98,7 @@ db.users.insertMany([
         "email": "jhoan.63@hotmail.com",
         "create_at": ISODate("2025-05-09T19:32:14.000Z"),
         "password": "$2a$10$Bi8/kIX1Hq3ka8SG8ltkquEpfUoi3v0VxKJziZnumERFc/NR8TASG",
+        "role": "USER",
         "_class": "peppertech.crm.api.Users.Model.Entity.User"
     },
     {
@@ -102,6 +108,7 @@ db.users.insertMany([
         "email": "bles@gmail.com",
         "create_at": ISODate("2025-05-09T22:05:24.000Z"),
         "password": "$2a$10$0vLv/qg7xcGeN6yJ391RI.Fwyk.VCymAUhjJ/wYEuo9pcZoKO1W4a",
+        "role": "USER",
         "_class": "peppertech.crm.api.Users.Model.Entity.User"
     },
     {
@@ -111,17 +118,9 @@ db.users.insertMany([
         "email": "usuario@example.com",
         "create_at": ISODate("2025-05-09T22:20:52.000Z"),
         "password": "$2a$10$AmVZjfVjq/ZuzToCuc2Syu6.86SU2MR4vFzA4HyddCpzTs5m3946O",
+        "role": "USER",
         "_class": "peppertech.crm.api.Users.Model.Entity.User"
-    },
-    {
-        "_id": ObjectId("682fe70a405eaa35d4dd40f6"),
-        "name": "Mariangel",
-        "lastname": "Sierra",
-        "email": "mariangel.sierra@example.com",
-        "create_at": ISODate("2025-05-23T03:10:02.000Z"),
-        "password": "$2a$10$LRhQkwsSq5cwc1CHMM4lZOOOsMdkNVhvWHBlUQmHhMLxUmWGfPD.W",
-        "_class": "peppertech.crm.api.Users.Model.Entity.User"
-    },
+    }
     {
         "_id": ObjectId("6830ecc9f72a7868ff67ee9b"),
         "name": "Memo",
@@ -129,6 +128,7 @@ db.users.insertMany([
         "email": "david@poli.edu.co",
         "create_at": ISODate("2025-05-23T21:46:49.000Z"),
         "password": "$2a$10$q8jLLpBNofK0X0yKHXX7cuJpT22ABxHOAD9Mmkxa8LofGMqTCiHMu",
+        "role": "USER",
         "_class": "peppertech.crm.api.Users.Model.Entity.User"
     }
 ]);
@@ -136,40 +136,94 @@ db.users.insertMany([
 db.createCollection('emails');
 db.emails.insertMany([
     {
-        "_id": ObjectId("68007bd05bc5f64f0fb58317"),
-        "recipient": "sebastianlopezosorno2005@gmail.com",
-        "msgBody": "Token para recuperar contraseña: eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY4MDA3NjA2OWE4ZDE2NzI2ZTZkNmRmMSIsImVtYWlsIjoic2ViYXN0aWFubG9wZXpvc29ybm8yMDA1QGdtYWlsLmNvbSIsInN1YiI6InNlYmFzdGlhbmxvcGV6b3Nvcm5vMjAwNUBnbWFpbC5jb20iLCJpYXQiOjE3NDQ4NjIxNTcsImV4cCI6MTc0NDg2NTE1N30.ITt8Wzb25xd2B8D0x5Jil-lC6wKG87NInVYdI4SAvX8",
-        "subject": "Recuperar contraseña",
-        "attachment": "",
-        "_class": "peppertech.crm.api.Mail.Model.Entity.EmailDetails"
+        _id: ObjectId("68530ec169959ba2683bfcca"),
+        recipient: "sebastianlopezosorno2005@gmail.com",
+        msgBody: "Hola Sebastián, has solicitado un enlace para restablecer tu contraseña. Si no fuiste tú, ignora este correo.",
+        subject: "Restablecer contraseña",
+        send_date: ISODate("2025-06-18T19:08:47.000Z"),
+        sent: true,
+        attachment: "",
+        _class: "peppertech.crm.api.Mails.Model.Entity.EmailDetails"
     },
     {
-        "_id": ObjectId("6830ee31adbe59462ec64187"),
-        "recipient": "david_cordoba82191@elpoli.edu.co",
-        "msgBody": "Usuario, tienes una tarea que vence hoy a las 11:59 a.m.",
-        "subject": "Recordatorio de Tarea",
-        "_class": "peppertech.crm.api.Mail.Model.Entity.EmailDetails"
+        _id: ObjectId("68530f8d69959ba2683bfccd"),
+        recipient: "sebastianlopezosorno2005@gmail.com",
+        msgBody: "¡Hola! Tu cuenta ha sido verificada exitosamente. Gracias por registrarte.",
+        subject: "Cuenta verificada",
+        send_date: ISODate("2025-06-18T19:12:11.000Z"),
+        sent: true,
+        attachment: "",
+        _class: "peppertech.crm.api.Mails.Model.Entity.EmailDetails"
     },
     {
-        "_id": ObjectId("6830eef6adbe59462ec64188"),
-        "recipient": "david_cordoba82191@elpoli.edu.co",
-        "msgBody": "Usuario, tienes una tarea que vence hoy a las 11:59 a.m.",
-        "subject": "Recordatorio de Tarea",
-        "_class": "peppertech.crm.api.Mail.Model.Entity.EmailDetails"
+        _id: ObjectId("6853100469959ba2683bfcce"),
+        recipient: "sebastianlopezosorno2005@gmail.com",
+        msgBody: "Este es un recordatorio de tu cita programada hoy a las 2:30 PM. Por favor, llega 10 minutos antes.",
+        subject: "Recordatorio de cita",
+        send_date: ISODate("2025-06-18T19:30:00.000Z"),
+        sent: true,
+        attachment: "",
+        _class: "peppertech.crm.api.Mails.Model.Entity.EmailDetails"
     },
     {
-        "_id": ObjectId("6830ef702a9a7a4caab7d122"),
-        "recipient": "david_cordoba82191@elpoli.edu.co",
-        "msgBody": "Usuario, tienes una tarea que vence hoy a las 11:59 a.m.",
-        "subject": "Recordatorio de Tarea",
-        "_class": "peppertech.crm.api.Mail.Model.Entity.EmailDetails"
+        _id: ObjectId("685337f0ae773938283ce9ef"),
+        recipient: "sebastianlopezosorno2005@gmail.com",
+        msgBody: "Estimado usuario, este es un correo de prueba para confirmar la correcta configuración del sistema de notificaciones.",
+        subject: "Correo de prueba del sistema",
+        send_date: ISODate("2025-06-18T22:04:20.000Z"),
+        sent: true,
+        attachment: "",
+        _class: "peppertech.crm.api.Mails.Model.Entity.EmailDetails"
     },
     {
-        "_id": ObjectId("6830efdd2a9a7a4caab7d123"),
-        "recipient": "sebastian_lopez82221@elpoli.edu.co",
-        "msgBody": "Usuario, tienes una tarea que vence hoy a las 11:59 a.m.",
-        "subject": "Recordatorio de Tarea",
-        "_class": "peppertech.crm.api.Mail.Model.Entity.EmailDetails"
+        _id: ObjectId("68007bd05bc5f64f0fb58317"),
+        recipient: "sebastianlopezosorno2005@gmail.com",
+        msgBody: "Token para recuperar contraseña: eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY4MDA3NjA2OWE4ZDE2NzI2ZTZkNmRmMSIsImVtYWlsIjoic2ViYXN0aWFubG9wZXpvc29ybm8yMDA1QGdtYWlsLmNvbSIsInN1YiI6InNlYmFzdGlhbmxvcGV6b3Nvcm5vMjAwNUBnbWFpbC5jb20iLCJpYXQiOjE3NDQ4NjIxNTcsImV4cCI6MTc0NDg2NTE1N30.ITt8Wzb25xd2B8D0x5Jil-lC6wKG87NInVYdI4SAvX8",
+        subject: "Recuperar contraseña",
+        send_date: ISODate("2025-06-18T18:45:00.000Z"),
+        sent: true,
+        attachment: "",
+        _class: "peppertech.crm.api.Mails.Model.Entity.EmailDetails"
+    },
+    {
+        _id: ObjectId("6830ee31adbe59462ec64187"),
+        recipient: "david_cordoba82191@elpoli.edu.co",
+        msgBody: "Usuario, tienes una tarea que vence hoy a las 11:59 a.m.",
+        subject: "Recordatorio de Tarea",
+        send_date: ISODate("2025-06-18T09:00:00.000Z"),
+        sent: true,
+        attachment: "",
+        _class: "peppertech.crm.api.Mails.Model.Entity.EmailDetails"
+    },
+    {
+        _id: ObjectId("6830eef6adbe59462ec64188"),
+        recipient: "david_cordoba82191@elpoli.edu.co",
+        msgBody: "Usuario, tienes una tarea que vence hoy a las 11:59 a.m.",
+        subject: "Recordatorio de Tarea",
+        send_date: ISODate("2025-06-18T09:05:00.000Z"),
+        sent: true,
+        attachment: "",
+        _class: "peppertech.crm.api.Mails.Model.Entity.EmailDetails"
+    },
+    {
+        _id: ObjectId("6830ef702a9a7a4caab7d122"),
+        recipient: "david_cordoba82191@elpoli.edu.co",
+        msgBody: "Usuario, tienes una tarea que vence hoy a las 11:59 a.m.",
+        subject: "Recordatorio de Tarea",
+        send_date: ISODate("2025-06-18T09:10:00.000Z"),
+        sent: true,
+        attachment: "",
+        _class: "peppertech.crm.api.Mails.Model.Entity.EmailDetails"
+    },
+    {
+        _id: ObjectId("6830efdd2a9a7a4caab7d123"),
+        recipient: "sebastian_lopez82221@elpoli.edu.co",
+        msgBody: "Usuario, tienes una tarea que vence hoy a las 11:59 a.m.",
+        subject: "Recordatorio de Tarea",
+        send_date: ISODate("2025-06-18T09:15:00.000Z"),
+        sent: true,
+        attachment: "",
+        _class: "peppertech.crm.api.Mails.Model.Entity.EmailDetails"
     }
 ]);
 
